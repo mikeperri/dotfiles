@@ -1,0 +1,11 @@
+[user]
+    name = Michael Perri
+    email = me@michaeljperri.com
+[push]
+    default = simple
+[pull]
+    rebase = true
+[filter "lfs"]
+    smudge = git-lfs smudge -- %f
+    required = true
+    clean = git-lfs clean -- %f
