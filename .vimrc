@@ -1,7 +1,6 @@
 set nocp
 syntax on
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 set pastetoggle=<F1>
 
 " Don't write extra files
@@ -56,7 +55,7 @@ set wildmode=longest,list
 set wildignore+=node_modules
 set wildignore+=dist/
 set wildignore+=*.swp,*.bak
-set wildignore+=*.pyc,*.class,*.sln,*.Master,*.csproj,*.csproj.user,*.cache,*.dll,*.pdb,*.min.*
+set wildignore+=*.pyc,*.class,*.Master,*.csproj,*.csproj.user,*.cache,*.dll,*.pdb,*.min.*
 set wildignore+=*/.git/**/*,*/.hg/**/*,*/.svn/**/*
 set wildignore+=*/dist/*
 set wildignore+=*/out/*
@@ -154,8 +153,33 @@ set suffixesadd+=.ts
 
 
 
-" Pathogen
-execute pathogen#infect()
+" vim-plug
+let g:plug_timeout = 100
+
+function! BuildYCM(info)
+    if a:info.status == 'installed' || a:info.force
+        !./install.py
+    endif
+endfunction
+
+if has("win32")
+    call plug#begin('~/vimfiles/plugged')
+else
+    call plug#begin('~/vim/plugged')
+endif
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'leafgarland/typescript-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-jdaddy'
+Plug 'juanpabloaj/vim-pixelmuerto'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+Plug 'vim-scripts/YankRing.vim'
+Plug 'mikeperri/YouCompleteMe', { 'branch': 'typescript-diagnostics', 'for': [ 'javascript', 'typescript', 'python', 'vim' ], 'do': 'python install.py' }
+call plug#end()
 
 " Theme
 if !has("win32") || has("gui_win32")
