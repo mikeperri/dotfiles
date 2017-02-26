@@ -156,12 +156,6 @@ set suffixesadd+=.ts
 " vim-plug
 let g:plug_timeout = 100
 
-function! BuildYCM(info)
-    if a:info.status == 'installed' || a:info.force
-        !./install.py
-    endif
-endfunction
-
 if has("win32")
     call plug#begin('~/vimfiles/plugged')
 else
