@@ -173,6 +173,9 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'mikeperri/YouCompleteMe', { 'branch': 'typescript-diagnostics', 'for': [ 'javascript', 'typescript', 'python', 'vim' ], 'do': 'python install.py' }
+if has("win32")
+    Plug 'kkoenig/wimproved.vim'
+endif
 call plug#end()
 
 " Theme
@@ -220,3 +223,9 @@ nnoremap <F12> :YcmCompleter GoToDefinition<CR>
 nnoremap <F11> :YcmCompleter GoToReferences<CR>
 nnoremap <leader>t :YcmCompleter GetType<CR>
 nnoremap <leader>d :YcmCompleter GetDoc<CR>
+
+" wimproved
+if has("win32")
+    autocmd GUIEnter * silent! WToggleClean
+    autocmd GUIEnter * silent! WSetAlpha 220
+endif
