@@ -101,6 +101,12 @@ imap <C-v> <ESC>"*pi
 let g:netrw_liststyle = 0
 let g:netrw_list_hide = '^\.'
 let g:netrw_hide = 1
+autocmd filetype netrw call NetrwMapping()
+
+function! NetrwMapping()
+    map <buffer> h -
+    map <buffer> l <CR>
+endfunction
 
 " Format
 command! FixWhitespace retab | %s/\s\+$
@@ -159,7 +165,7 @@ let g:plug_timeout = 100
 if has("win32")
     call plug#begin('~/vimfiles/plugged')
 else
-    call plug#begin('~/vim/plugged')
+    call plug#begin('~/.vim/plugged')
 endif
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-syntastic/syntastic'
@@ -172,7 +178,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/YankRing.vim'
-Plug 'mikeperri/YouCompleteMe', { 'branch': 'typescript-diagnostics', 'for': [ 'javascript', 'typescript', 'python', 'vim' ], 'do': 'python install.py' }
+Plug 'Valloric/YouCompleteMe', { 'for': [ 'javascript', 'typescript', 'python', 'vim' ], 'do': 'python install.py' }
 if has("win32")
     Plug 'kkoenig/wimproved.vim'
 endif
