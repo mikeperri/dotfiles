@@ -40,13 +40,7 @@ if has("gui_running")
     endif
 endif
 
-" Tab characters
-set expandtab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-set smartindent
-set smarttab
+" Backspace
 set backspace=2
 
 " Wild
@@ -150,6 +144,8 @@ set suffixesadd+=.js
 " TypeScript
 set suffixesadd+=.ts
 
+" HTML
+autocmd FileType html imap <buffer> </ </<C-X><C-O>
 
 
 
@@ -164,6 +160,7 @@ let g:plug_timeout = 100
 
 if has("win32")
     call plug#begin('~/vimfiles/plugged')
+    Plug 'kkoenig/wimproved.vim'
 else
     call plug#begin('~/.vim/plugged')
 endif
@@ -174,14 +171,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-jdaddy'
 Plug 'juanpabloaj/vim-pixelmuerto'
+Plug 'tpope/vim-sleuth',
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'Valloric/YouCompleteMe', { 'for': [ 'javascript', 'typescript', 'python', 'vim' ], 'do': 'python install.py' }
-if has("win32")
-    Plug 'kkoenig/wimproved.vim'
-endif
 call plug#end()
 
 " Theme
