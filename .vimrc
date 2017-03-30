@@ -14,7 +14,7 @@ set laststatus=2
 set ff=unix
 set encoding=utf8
 
-" Always show sign column (points to lines with errors)
+" Always show error gutter
 set signcolumn=yes
 
 " Leader key
@@ -165,7 +165,7 @@ else
     call plug#begin('~/.vim/plugged')
 endif
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 Plug 'leafgarland/typescript-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
@@ -177,6 +177,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'Valloric/YouCompleteMe', { 'for': [ 'javascript', 'typescript', 'python', 'vim' ], 'do': 'python install.py' }
+Plug 'w0rp/ale', { 'for': [ 'javascript', 'typescript', 'python' ] }
 call plug#end()
 
 " Theme
