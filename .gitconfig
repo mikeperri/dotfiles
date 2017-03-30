@@ -10,5 +10,5 @@
     required = true
     clean = git-lfs clean -- %f
 [alias]
-    push-set-upstream = !git push --set-upstream=origin `git symbolic-ref --short HEAD`
+    push-set-upstream = !git push --set-upstream origin `git symbolic-ref --short HEAD`
     reset-origin = !git reset --hard origin/`git symbolic-ref --short HEAD`
